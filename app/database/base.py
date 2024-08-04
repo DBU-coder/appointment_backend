@@ -11,6 +11,7 @@ from sqlalchemy.ext.asyncio import (
 from app.config import settings
 
 from .repositories import UserRepository
+from .repositories.patient import PatientRepository
 
 
 class DBConnector:
@@ -49,6 +50,7 @@ class Database:
     ):
         self.session = session
         self.user = UserRepository(session=session)
+        self.patient = PatientRepository(session=session)
 
 
 db_connector = DBConnector(url=settings.database_url, echo=settings.DB_ECHO)

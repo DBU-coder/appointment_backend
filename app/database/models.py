@@ -33,7 +33,7 @@ doctor_FK = Annotated[int, mapped_column(ForeignKey("doctors.id"))]
 
 
 class Role(str, enum.Enum):
-    USER = "USER"
+    PATIENT = "PATIENT"
     DOCTOR = "DOCTOR"
     ADMIN = "ADMIN"
     SUPERADMIN = "SUPERADMIN"
@@ -74,7 +74,7 @@ class User(Base):
     email: Mapped[email_unique]
     hashed_pwd: Mapped[str]
     phone: Mapped[phone_unique]
-    role: Mapped[Role] = mapped_column(Enum(Role), default=Role.USER)
+    role: Mapped[Role] = mapped_column(Enum(Role), default=Role.PATIENT)
 
     doctor: Mapped["Doctor"] = relationship(back_populates="user")
     patient: Mapped["Patient"] = relationship(back_populates="user")

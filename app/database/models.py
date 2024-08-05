@@ -87,7 +87,7 @@ class Patient(Base):
 
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
 
-    user: Mapped["User"] = relationship(back_populates="patient")
+    user: Mapped["User"] = relationship(back_populates="patient", lazy="joined")
     appointments: Mapped[list["Appointment"]] = relationship(back_populates="patient")
 
 

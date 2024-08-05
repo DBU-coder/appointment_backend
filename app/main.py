@@ -7,10 +7,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1 import router as v1_router
 from app.api.v1.auth.helpers import get_password_hash
 from app.api.v1.users.schemas import UserInDB
+from app.common import Role
 from app.config import settings
 from app.database import (
     Database,
-    Role,
     db_connector,
 )
 

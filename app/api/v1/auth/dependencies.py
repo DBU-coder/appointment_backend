@@ -9,10 +9,10 @@ from app.api.v1.auth.token import (
     REFRESH_TOKEN_TYPE,
     TOKEN_TYPE_FIELD,
 )
+from app.common import Role
 from app.config import settings
 from app.database import (
     Database,
-    Role,
     User,
 )
 from app.database.dependencies import get_database

@@ -18,7 +18,7 @@ router = APIRouter(prefix="/patients", tags=["patients"])
 DB_deps = Annotated[Database, Depends(get_database)]
 
 
-@router.post("/register", status_code=status.HTTP_201_CREATED)
+@router.post("/", status_code=status.HTTP_201_CREATED)
 async def register(
     data: user_schemas.UserCreate,
     db: DB_deps,

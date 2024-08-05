@@ -1,8 +1,4 @@
 __all__ = [
-    "Role",
-    "AppointmentStatus",
-    "SlotStatus",
-    "Base",
     "User",
     "Doctor",
     "Patient",
@@ -16,13 +12,10 @@ __all__ = [
 from .base import Database, db_connector
 from .models import (
     Appointment,
-    AppointmentStatus,
     Base,
     Doctor,
     Patient,
-    Role,
     Schedule,
     Service,
-    SlotStatus,
     User,
 )

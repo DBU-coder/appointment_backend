@@ -16,6 +16,10 @@ class Repository(Generic[AbstractModel], ABC):
         self.type_model = type_model
         self.session = session
 
+    @abstractmethod
+    async def new(self, *args, **kwargs) -> AbstractModel:
+        pass
+
     async def get(self, ident: int | str) -> AbstractModel | None:
         return await self.session.get(entity=self.type_model, ident=ident)
 
@@ -44,7 +48,3 @@ class Repository(Generic[AbstractModel], ABC):
         statement = insert(self.type_model)
         await self.session.execute(statement, data)
         await self.session.commit()
-
-    @abstractmethod
-    async def new(self, *args, **kwargs) -> AbstractModel:
-        pass

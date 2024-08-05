@@ -43,6 +43,7 @@ class DBConnector:
 class Database:
     session: AsyncSession
     user: UserRepository
+    patient: PatientRepository
 
     def __init__(
         self,

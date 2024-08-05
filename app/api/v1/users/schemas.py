@@ -2,7 +2,7 @@ from re import compile
 
 from pydantic import BaseModel, ConfigDict, EmailStr, field_validator
 
-from app.database import Role
+from app.common import Role
 
 
 class UserBase(BaseModel):

@@ -31,8 +31,8 @@ async def login(
         email=credentials.email,
         password=credentials.password,
     )
-    access_token = create_access_token(user)
-    refresh_token = create_refresh_token(user)
+    access_token = create_access_token(user)  # type: ignore
+    refresh_token = create_refresh_token(user)  # type: ignore
     response.headers["Authorization"] = f"Bearer {access_token}"
     response.set_cookie("refresh_token", refresh_token, httponly=True)
 

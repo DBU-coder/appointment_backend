@@ -2,7 +2,8 @@ from typing import TYPE_CHECKING
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.database.models import Role, User
+from app.common import Role
+from app.database.models import User
 from app.database.repositories.abstract import Repository
 
 if TYPE_CHECKING:

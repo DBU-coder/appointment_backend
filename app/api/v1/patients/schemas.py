@@ -1,7 +1,5 @@
-
-
 from app.api.v1.users.schemas import UserBase
-from app.database import Role
+from app.common import Role
 
 
 class PatientInDB(UserBase):

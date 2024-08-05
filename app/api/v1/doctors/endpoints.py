@@ -8,9 +8,9 @@ from app.api.v1.auth.dependencies import (
 )
 from app.api.v1.auth.helpers import get_password_hash
 from app.api.v1.users import schemas as user_schemas
+from app.common import Role
 from app.database import (
     Database,
-    Role,
 )
 from app.database.dependencies import get_database
 from app.exceptions import UserAlreadyExistsException

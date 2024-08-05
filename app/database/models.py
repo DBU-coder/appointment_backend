@@ -1,4 +1,3 @@
-import enum
 from datetime import UTC, date, datetime
 from typing import Annotated
 from uuid import UUID, uuid4
@@ -21,6 +20,8 @@ from sqlalchemy.orm import (
     relationship,
 )
 
+from app.common import AppointmentStatus, Role
+
 # Custom types
 id_uuid = Annotated[
     UUID,
@@ -30,26 +31,6 @@ str100 = Annotated[str, 100]
 email_unique = Annotated[str, mapped_column(String(320), unique=True)]
 phone_unique = Annotated[str, mapped_column(String(16), unique=True)]
 doctor_FK = Annotated[int, mapped_column(ForeignKey("doctors.id"))]
-
-
-class Role(str, enum.Enum):
-    PATIENT = "PATIENT"
-    DOCTOR = "DOCTOR"
-    ADMIN = "ADMIN"
-    SUPERADMIN = "SUPERADMIN"
-
-
-class AppointmentStatus(str, enum.Enum):
-    NEW = "NEW"
-    CONFIRMED = "CONFIRMED"
-    CANCELED = "CANCELED"
-    COMPLETED = "COMPLETED"
-
-
-class SlotStatus(str, enum.Enum):
-    AVAILABLE = "AVAILABLE"
-    UNAVAILABLE = "UNAVAILABLE"
-    BOOKED = "BOOKED"
 
 
 class Base(AsyncAttrs, DeclarativeBase):
